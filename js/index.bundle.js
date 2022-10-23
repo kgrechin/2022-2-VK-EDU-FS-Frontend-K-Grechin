@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("window.location.href = '../chats.html';\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("window.location.href = './chats.html';\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ })
 
