@@ -1,0 +1,39 @@
+.messages-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #00acee;
+}
+
+.messages-header .profile-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  margin-left: 15px;
+}
+
+.messages-header .image {
+  width: 55px;
+  height: 55px;
+  border-radius: 30px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.messages-header .information-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+}
+
+.messages-header .name {
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+}
+
+.messages-header .activity {
+  font-size: 14px;
+  color: #dbf5ff;
+}

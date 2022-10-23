@@ -1,60 +1,41 @@
-"use strict";
-
-const path = require("path");
-
+const path = require('path')
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require("webpack");
-
-const SRC_PATH = path.resolve(__dirname, "src");
-const BUILD_PATH = path.resolve(__dirname, "build");
 
 module.exports = {
-  context: SRC_PATH,
-  entry: {
-    index: "./index.js",
-  },
+  entry: './src/js/index.js',
   output: {
-    path: BUILD_PATH,
-    filename: "bundle.js",
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'build')
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, "src"),
   },
   module: {
-    strictExportPresence: true,
     rules: [
       {
         test: /\.js$/,
-        include: SRC_PATH,
         use: [
           {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
-            },
-          },
-        ],
+            }
+          }
+        ]
       },
       {
-        test: /shadow\.css$/,
-        include: SRC_PATH,
-        use: [
-          {
-            loader: "css-loader",
-          },
-        ],
-      },
-      {
-        test: /index\.css$/,
-        include: SRC_PATH,
+        test: /\.css$/,
         use: [
           {
             loader: MiniCSSExtractPlugin.loader,
           },
           {
             loader: "css-loader",
-          },
-        ],
+          }
+        ]
       },
-    ],
+    ]
   },
   plugins: [
     new MiniCSSExtractPlugin({
@@ -62,7 +43,7 @@ module.exports = {
     }),
     new HTMLWebpackPlugin({
       filename: "index.html",
-      template: "./index.html",
+      template: "./src/index.html",
     }),
   ],
-};
+}

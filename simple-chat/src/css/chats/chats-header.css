@@ -1,0 +1,13 @@
+.chats-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #00acee;
+}
+
+.chats-header .title {
+  flex: 1;
+  font-size: 25px;
+  color: white;
+  text-align: center;
+}
