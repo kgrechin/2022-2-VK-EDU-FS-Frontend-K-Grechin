@@ -1,1 +1,1 @@
-window.location.href = '../chats.html';
+window.location.href = './chats.html';

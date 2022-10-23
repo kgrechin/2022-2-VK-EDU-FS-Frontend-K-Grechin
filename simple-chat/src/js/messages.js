@@ -19,7 +19,7 @@ document.addEventListener(
 back_button.addEventListener('click', goToChats.bind(this))
 
 function goToChats(event) {
-  window.location.href = '../chats.html';
+  window.location.href = './chats.html';
 }
 
 function handleSubmit(event) {

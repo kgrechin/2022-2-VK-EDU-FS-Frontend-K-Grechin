@@ -10,5 +10,5 @@ const chat = document.querySelector(".chats-box");
 chat.addEventListener('click', goToChat.bind(this))
 
 function goToChat() {
-  window.location.href = '../messages.html';
+  window.location.href = './messages.html';
 }
