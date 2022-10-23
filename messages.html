@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/buttons.css">
+  <link rel="stylesheet" href="./css/messages/messages-container.css">
+  <link rel="stylesheet" href="./css/messages/messages-header.css">
+  <link rel="stylesheet" href="./css/messages/messages-box.css">
+  <link rel="stylesheet" href="./css/messages/messages-form.css">
+
+  <title>Messages</title>
+<link href="css/messages.css" rel="stylesheet"></head>
+
+<body>
+  <article class="messages-container">
+
+    <header class="messages-header">
+      <button class="back-button">
+        <span class="material-icons">arrow_back</span>
+      </button>
+
+      <section class="profile-container">
+        <img class="image" src="https://bit.ly/3TbYR88" alt="" />
+        <div class="information-container">
+          <span class="name">Дженнифер</span>
+          <span class="activity">была 2 часа назад</span>
+        </div>
+      </section>
+
+      <button class="search-button">
+        <span class="material-icons">search</span>
+      </button>
+
+      <button class="more-button">
+        <span class="material-icons">more_vert</span>
+      </button>
+    </header>
+
+    <section class="messages-box">
+      <div class="message left">
+        <span class="text">Тебе нравится как я нарисовала?</span>
+        <div class="data">
+          <span class="time">10:53</span>
+        </div>
+      </div>
+
+      <div class="message left">
+        <img src="https://bit.ly/3VuLW2w" alt="" />
+        <span class="text">
+          Я тут кое-что нарисовала! Посмотри как будет время.
+        </span>
+        <div class="data">
+          <span class="time">10:53</span>
+        </div>
+      </div>
+    </section>
+
+    <form class="messages-form" action="/">
+      <input class="form-input" name="message-text" placeholder="Cообщение" type="textarea" />
+      <button class="attachment-button" type="button">
+        <span class="material-icons">attachment</span>
+      </button>
+    </form>
+
+  </article>
+  <script src="./js/messages.js"></script>
+<script type="text/javascript" src="js/messages.bundle.js"></script></body>
+
+</html>

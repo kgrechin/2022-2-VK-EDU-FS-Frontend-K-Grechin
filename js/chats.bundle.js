@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/chats.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -141,59 +141,15 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
-/***/ "./src/css/messages/messages-box.css":
-/*!*******************************************!*\
-  !*** ./src/css/messages/messages-box.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/messages/messages-box.css?");
-
-/***/ }),
-
-/***/ "./src/css/messages/messages-container.css":
-/*!*************************************************!*\
-  !*** ./src/css/messages/messages-container.css ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/messages/messages-container.css?");
-
-/***/ }),
-
-/***/ "./src/css/messages/messages-form.css":
-/*!********************************************!*\
-  !*** ./src/css/messages/messages-form.css ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/messages/messages-form.css?");
-
-/***/ }),
-
-/***/ "./src/css/messages/messages-header.css":
-/*!**********************************************!*\
-  !*** ./src/css/messages/messages-header.css ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/css/messages/messages-header.css?");
-
-/***/ }),
-
-/***/ "./src/js/index.js":
+/***/ "./src/js/chats.js":
 /*!*************************!*\
-  !*** ./src/js/index.js ***!
+  !*** ./src/js/chats.js ***!
   \*************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_buttons_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/buttons.css */ \"./src/css/buttons.css\");\n/* harmony import */ var _css_buttons_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_buttons_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _css_general_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/general.css */ \"./src/css/general.css\");\n/* harmony import */ var _css_general_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_general_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _css_messages_messages_box_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/messages/messages-box.css */ \"./src/css/messages/messages-box.css\");\n/* harmony import */ var _css_messages_messages_box_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_messages_messages_box_css__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _css_messages_messages_container_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../css/messages/messages-container.css */ \"./src/css/messages/messages-container.css\");\n/* harmony import */ var _css_messages_messages_container_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_messages_messages_container_css__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _css_messages_messages_form_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../css/messages/messages-form.css */ \"./src/css/messages/messages-form.css\");\n/* harmony import */ var _css_messages_messages_form_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_messages_messages_form_css__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _css_messages_messages_header_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../css/messages/messages-header.css */ \"./src/css/messages/messages-header.css\");\n/* harmony import */ var _css_messages_messages_header_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_css_messages_messages_header_css__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _css_chats_chats_box_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../css/chats/chats-box.css */ \"./src/css/chats/chats-box.css\");\n/* harmony import */ var _css_chats_chats_box_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_css_chats_chats_box_css__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _css_chats_chats_header_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../css/chats/chats-header.css */ \"./src/css/chats/chats-header.css\");\n/* harmony import */ var _css_chats_chats_header_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_css_chats_chats_header_css__WEBPACK_IMPORTED_MODULE_7__);\n/* harmony import */ var _css_chats_create_button_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../css/chats/create-button.css */ \"./src/css/chats/create-button.css\");\n/* harmony import */ var _css_chats_create_button_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_css_chats_create_button_css__WEBPACK_IMPORTED_MODULE_8__);\n\n\n\n\n\n\n\n\n\nwindow.location.href = 'chats.html';\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_buttons_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/buttons.css */ \"./src/css/buttons.css\");\n/* harmony import */ var _css_buttons_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_buttons_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _css_general_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/general.css */ \"./src/css/general.css\");\n/* harmony import */ var _css_general_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_general_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _css_chats_chats_box_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/chats/chats-box.css */ \"./src/css/chats/chats-box.css\");\n/* harmony import */ var _css_chats_chats_box_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_chats_chats_box_css__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _css_chats_chats_header_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../css/chats/chats-header.css */ \"./src/css/chats/chats-header.css\");\n/* harmony import */ var _css_chats_chats_header_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_chats_chats_header_css__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _css_chats_create_button_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../css/chats/create-button.css */ \"./src/css/chats/create-button.css\");\n/* harmony import */ var _css_chats_create_button_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_chats_create_button_css__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\nvar chat = document.querySelector(\".chats-box\");\nchat.addEventListener('click', goToChat.bind(undefined));\nfunction goToChat() {\n  window.location.href = '../messages.html';\n}\n\n//# sourceURL=webpack:///./src/js/chats.js?");
 
 /***/ })
 
