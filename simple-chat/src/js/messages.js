@@ -1,14 +1,26 @@
-import "./index.css";
+import "../css/buttons.css";
+import "../css/general.css";
 
-const form = document.querySelector("form");
+import "../css/messages/messages-box.css";
+import "../css/messages/messages-container.css";
+import "../css/messages/messages-form.css";
+import "../css/messages/messages-header.css";
+
+const form = document.querySelector(".messages-form");
 const input = document.querySelector(".form-input");
-const chat = document.querySelector(".chat-box");
+const chat = document.querySelector(".messages-box");
+const back_button = document.querySelector('.back-button')
 
 form.addEventListener("submit", handleSubmit.bind(this));
 document.addEventListener(
   "DOMContentLoaded",
   getMesagesFromLocalStorage.bind(this)
 );
+back_button.addEventListener('click', goToChats.bind(this))
+
+function goToChats(event) {
+  window.location.href = './chats.html';
+}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -31,6 +43,7 @@ function handleKeyPress(event) {
 }
 
 function createMessage(message) {
+  debugger;
   const messageContainer = document.createElement("div");
   messageContainer.className = "message right";
 

@@ -1,68 +1,68 @@
-"use strict";
-
-const path = require("path");
-
+const path = require('path')
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require("webpack");
-
-const SRC_PATH = path.resolve(__dirname, "src");
-const BUILD_PATH = path.resolve(__dirname, "build");
 
 module.exports = {
-  context: SRC_PATH,
   entry: {
-    index: "./index.js",
+    index: './src/js/index.js',
+    chats: './src/js/chats.js',
+    messages: './src/js/messages.js'
   },
   output: {
-    path: BUILD_PATH,
-    filename: "bundle.js",
+    filename: 'js/[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
+    publicPath: '',
+    path: path.resolve(__dirname, 'build')
   },
   module: {
-    strictExportPresence: true,
     rules: [
       {
         test: /\.js$/,
-        include: SRC_PATH,
         use: [
           {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
-            },
-          },
-        ],
+            }
+          }
+        ]
       },
       {
-        test: /shadow\.css$/,
-        include: SRC_PATH,
-        use: [
-          {
-            loader: "css-loader",
-          },
-        ],
-      },
-      {
-        test: /index\.css$/,
-        include: SRC_PATH,
+        test: /\.css$/,
         use: [
           {
             loader: MiniCSSExtractPlugin.loader,
           },
           {
             loader: "css-loader",
-          },
-        ],
+          }
+        ]
       },
-    ],
+    ]
   },
   plugins: [
     new MiniCSSExtractPlugin({
-      filename: "style.css",
+      filename: "css/[name].css",
+      chunks: ['chats']
+    }),
+    new MiniCSSExtractPlugin({
+      filename: "css/[name].css",
+      chunks: ['messages']
     }),
     new HTMLWebpackPlugin({
       filename: "index.html",
-      template: "./index.html",
+      template: "./src/index.html",
+      chunks: ['index']
+    }),
+    new HTMLWebpackPlugin({
+      filename: "chats.html",
+      template: "./src/chats.html",
+      chunks: ['chats']
+    }),
+    new HTMLWebpackPlugin({
+      filename: "messages.html",
+      template: "./src/messages.html",
+      chunks: ['messages']
     }),
   ],
-};
+}
