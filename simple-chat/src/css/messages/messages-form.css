@@ -1,5 +1,5 @@
 .messages-form {
-  height: 60px;
+  height: 70px;
   display: flex;
   border-top: 1px solid #c7c7c7;
   padding: 0 20px 0 20px;
@@ -18,9 +18,16 @@
   cursor: pointer;
   background-color: white;
   color: #657786;
-  transition: opacity 0.2s;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
 }
 
 .messages-form .attachment-button:hover {
   opacity: 0.8;
+}
+
+.messages-form .attachment-button:active {
+  opacity: 0.8;
+  color: #434f59;
 }

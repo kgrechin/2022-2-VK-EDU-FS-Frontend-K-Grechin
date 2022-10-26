@@ -1,5 +1,5 @@
 .chats-header {
-  height: 70px;
+  height: 80px;
   display: flex;
   align-items: center;
   background-color: #00acee;
@@ -7,7 +7,19 @@
 
 .chats-header .title {
   flex: 1;
-  font-size: 25px;
+  font-size: 35px;
   color: white;
   text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .chats-header .title {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 501px) {
+  .chats-header .title {
+    font-size: 34px;
+  }
 }

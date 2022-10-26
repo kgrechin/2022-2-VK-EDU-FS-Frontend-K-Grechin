@@ -24,6 +24,7 @@ function goToChats(event) {
 
 function handleSubmit(event) {
   event.preventDefault();
+  if (input.value == '' || input.value == null) { return }
   const message = {
     text: input.value,
     time: `${new Date().toLocaleTimeString("ru", {

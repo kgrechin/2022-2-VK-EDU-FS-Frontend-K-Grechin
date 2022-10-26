@@ -1,17 +1,53 @@
 .create-button {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  width: 70px;
-  height: 70px;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  width: 75px;
+  height: 75px;
   border-radius: 50px;
   border: none;
-  background-color: #657786;
+  background-color: rgb(101, 119, 134);
   color: white;
   cursor: pointer;
+  padding: 0;
+  transform: scale(1);
+  transition: all 0.2s;
 }
 
 .create-button:hover {
-  background-color: #4e5c68;
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.create-button:active {
+  opacity: 1;
+  transform: scale(1);
+  animation: pulse 0.2s 1 ease-out;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1),
+      0 0 0 0 rgba(101, 119, 134, 1);
+  }
+
+  to {
+    box-shadow: 0 0 0 0.65em rgba(255, 255, 255, 1),
+      0 0 0 1em rgba(101, 119, 134, 0);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .create-button {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media screen and (min-width: 501px) {
+  .create-button {
+    width: 75px;
+    height: 75px;
+  }
 }
