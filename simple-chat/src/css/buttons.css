@@ -2,8 +2,8 @@
 .search-button,
 .more-button,
 .burger-button {
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
   padding: 0;
   border: none;
   background-color: #00acee;
@@ -12,9 +12,16 @@
   transition: background-color 0.2s;
 }
 
+.back-button:hover,
+.search-button:hover,
+.more-button:hover,
+.burger-button:hover {
+  background-color: #00a4e4;
+}
+
 .back-button:active,
 .search-button:active,
 .more-button:active,
 .burger-button:active {
-  background-color: #009edc;
+  background-color: #009cda;
 }

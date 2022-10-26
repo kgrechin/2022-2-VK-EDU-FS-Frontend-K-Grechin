@@ -38,14 +38,40 @@
   color: #009edc;
 }
 
+@keyframes right-message-scale {
+  from {
+    transform: scale(0);
+    transform-origin: bottom right;
+  }
+
+  to {
+    transform: scale(1);
+    transform-origin: bottom right;
+  }
+}
+
+@keyframes left-message-scale {
+  from {
+    transform: scale(0);
+    transform-origin: bottom left;
+  }
+
+  to {
+    transform: scale(1);
+    transform-origin: bottom left;
+  }
+}
+
 .messages-box .left {
   align-self: flex-start;
   background-color: white;
   border-bottom-left-radius: 0;
+  animation: left-message-scale 0.5s;
 }
 
 .messages-box .right {
   align-self: flex-end;
   background-color: #b0e1ff;
   border-bottom-right-radius: 0;
+  animation: right-message-scale 0.5s;
 }
