@@ -2,8 +2,8 @@
 .search-button,
 .more-button,
 .burger-button {
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
   padding: 0;
   border: none;
   background-color: #00acee;
@@ -12,11 +12,18 @@
   transition: background-color 0.2s;
 }
 
+.back-button:hover,
+.search-button:hover,
+.more-button:hover,
+.burger-button:hover {
+  background-color: #00a4e4;
+}
+
 .back-button:active,
 .search-button:active,
 .more-button:active,
 .burger-button:active {
-  background-color: #009edc;
+  background-color: #009cda;
 }
 
 html {
@@ -80,16 +87,42 @@ input[type="submit"] {
   color: #009edc;
 }
 
+@keyframes right-message-scale {
+  from {
+    transform: scale(0);
+    transform-origin: bottom right;
+  }
+
+  to {
+    transform: scale(1);
+    transform-origin: bottom right;
+  }
+}
+
+@keyframes left-message-scale {
+  from {
+    transform: scale(0);
+    transform-origin: bottom left;
+  }
+
+  to {
+    transform: scale(1);
+    transform-origin: bottom left;
+  }
+}
+
 .messages-box .left {
   align-self: flex-start;
   background-color: white;
   border-bottom-left-radius: 0;
+  animation: left-message-scale 0.5s;
 }
 
 .messages-box .right {
   align-self: flex-end;
   background-color: #b0e1ff;
   border-bottom-right-radius: 0;
+  animation: right-message-scale 0.5s;
 }
 
 .messages-container {
@@ -100,7 +133,7 @@ input[type="submit"] {
 }
 
 .messages-form {
-  height: 60px;
+  height: 70px;
   display: flex;
   border-top: 1px solid #c7c7c7;
   padding: 0 20px 0 20px;
@@ -119,15 +152,22 @@ input[type="submit"] {
   cursor: pointer;
   background-color: white;
   color: #657786;
-  transition: opacity 0.2s;
+  transition:
+    opacity 0.2s,
+    color 0.2s;
 }
 
 .messages-form .attachment-button:hover {
   opacity: 0.8;
 }
 
+.messages-form .attachment-button:active {
+  opacity: 0.8;
+  color: #434f59;
+}
+
 .messages-header {
-  height: 70px;
+  height: 80px;
   display: flex;
   align-items: center;
   background-color: #00acee;
@@ -137,13 +177,13 @@ input[type="submit"] {
   flex: 1;
   display: flex;
   align-items: center;
-  column-gap: 15px;
+  column-gap: 25px;
   margin-left: 15px;
 }
 
 .messages-header .image {
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   border-radius: 30px;
   object-fit: cover;
   object-position: center;
@@ -164,5 +204,26 @@ input[type="submit"] {
 .messages-header .activity {
   font-size: 14px;
   color: #dbf5ff;
+}
+
+@media screen and (max-width: 500px) {
+  .messages-header .activity {
+    font-size: 12px;
+  }
+
+  .messages-header .profile-container {
+    column-gap: 10px;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (min-width: 501px) {
+  .messages-header .activity {
+    font-size: 16px;
+  }
+
+  .messages-header .name {
+    font-size: 24px;
+  }
 }
 

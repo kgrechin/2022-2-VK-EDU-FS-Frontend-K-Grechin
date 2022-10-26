@@ -2,8 +2,8 @@
 .search-button,
 .more-button,
 .burger-button {
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
   padding: 0;
   border: none;
   background-color: #00acee;
@@ -12,11 +12,18 @@
   transition: background-color 0.2s;
 }
 
+.back-button:hover,
+.search-button:hover,
+.more-button:hover,
+.burger-button:hover {
+  background-color: #00a4e4;
+}
+
 .back-button:active,
 .search-button:active,
 .more-button:active,
 .burger-button:active {
-  background-color: #009edc;
+  background-color: #009cda;
 }
 
 html {
@@ -46,27 +53,31 @@ input[type="submit"] {
   flex-direction: column-reverse;
   overflow-y: auto;
   cursor: pointer;
-  transition: background-color 0.2s;
   background-color: white;
-}
-
-.chats-box:hover {
-  background-color: #dbf5ff;
 }
 
 .chats-box .profile-container {
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 10px 25px 10px 20px;
   border-bottom: 1px solid #dbf5ff;
   margin: 0;
   column-gap: 25px;
+  transition: background-color 0.2s;
+}
+
+.chats-box .profile-container:hover {
+  background-color: #dbf5ff;
+}
+
+.chats-box .profile-container:active {
+  background-color: #bdecff;
 }
 
 .chats-box .image {
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   border-radius: 30px;
   object-fit: cover;
   object-position: center;
@@ -96,7 +107,7 @@ input[type="submit"] {
 }
 
 .chats-header {
-  height: 70px;
+  height: 80px;
   display: flex;
   align-items: center;
   background-color: #00acee;
@@ -104,26 +115,74 @@ input[type="submit"] {
 
 .chats-header .title {
   flex: 1;
-  font-size: 25px;
+  font-size: 35px;
   color: white;
   text-align: center;
 }
 
+@media screen and (max-width: 500px) {
+  .chats-header .title {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 501px) {
+  .chats-header .title {
+    font-size: 34px;
+  }
+}
+
 .create-button {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  width: 70px;
-  height: 70px;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  width: 75px;
+  height: 75px;
   border-radius: 50px;
   border: none;
-  background-color: #657786;
+  background-color: rgb(101, 119, 134);
   color: white;
   cursor: pointer;
+  padding: 0;
+  transform: scale(1);
+  transition: all 0.2s;
 }
 
 .create-button:hover {
-  background-color: #4e5c68;
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.create-button:active {
+  opacity: 1;
+  transform: scale(1);
+  animation: pulse 0.2s 1 ease-out;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1),
+      0 0 0 0 rgba(101, 119, 134, 1);
+  }
+
+  to {
+    box-shadow: 0 0 0 0.65em rgba(255, 255, 255, 1),
+      0 0 0 1em rgba(101, 119, 134, 0);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .create-button {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media screen and (min-width: 501px) {
+  .create-button {
+    width: 75px;
+    height: 75px;
+  }
 }
 
