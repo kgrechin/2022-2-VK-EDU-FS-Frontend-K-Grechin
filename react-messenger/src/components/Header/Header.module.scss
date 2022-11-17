@@ -1,0 +1,14 @@
+@use '../../scss/variables';
+
+.header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  opacity: variables.$opacity;
+  background-color: variables.$dark-color;
+
+  @media screen and (max-width: 767px) {
+    padding: 0 8px;
+  }
+}

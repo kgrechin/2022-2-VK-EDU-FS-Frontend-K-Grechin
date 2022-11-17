@@ -1,0 +1,46 @@
+@use '../../scss/extends';
+@use '../../scss/variables';
+
+.meta {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  gap: 16px;
+
+  @media screen and (max-width: 767px) {
+    gap: 8px;
+  }
+
+  .image {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+
+  .data {
+    @extend .flex-column;
+    justify-content: center;
+    overflow: hidden;
+    gap: 6px;
+
+    .name,
+    .activity {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .name {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .activity {
+      color: variables.$light-color;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}

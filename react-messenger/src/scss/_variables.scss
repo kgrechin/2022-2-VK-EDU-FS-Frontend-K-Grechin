@@ -1,0 +1,16 @@
+$dark-color: #212121;
+$dark-hover-color: #282828;
+$dark-active-color: #303030;
+$light-color: #aaaaaa;
+
+$opacity: 0.95;
+
+$blackout: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+
+$gradient-color: rgb(4, 105, 69);
+$gradient: linear-gradient(
+  11deg,
+  rgba(4, 105, 69, 1) 0%,
+  rgba(15, 71, 96, 1) 50%,
+  rgba(60, 28, 47, 1) 100%
+);
