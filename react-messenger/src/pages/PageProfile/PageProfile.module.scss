@@ -1,9 +1,0 @@
-@use '../../scss/extends';
-
-.header {
-  justify-content: space-between;
-}
-
-.wrapper {
-  @extend .flex-column, .flex-center;
-}

@@ -1,18 +1,20 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 
 import PageChat from './pages/PageChat'
 import PageChatList from './pages/PageChatList'
-import PageProfile from './pages/PageProfile'
 
 const App = () => {
+  const [page, setPage] = useState('chat')
+
+  const changePage = (name) => {
+    setPage(name)
+  }
+
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<PageChatList />} />
-        <Route path="chat/:id" element={<PageChat />} />
-        <Route path="profile" element={<PageProfile />} />
-      </Routes>
-    </HashRouter>
+    <>
+      {page === 'chat' && <PageChat setPage={changePage} />}
+      {page === 'chatlist' && <PageChatList setPage={changePage} />}
+    </>
   )
 }
 
