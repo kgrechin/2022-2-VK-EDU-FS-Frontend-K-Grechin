@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.0a84bea5.css",
+    "main.css": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.31a3edae.css",
     "main.js": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.70796663.js",
     "static/media/bg.jpg": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/media/bg.fed4bbfd0995337c401d.jpg",
     "index.html": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/index.html",
-    "main.0a84bea5.css.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.0a84bea5.css.map",
+    "main.31a3edae.css.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.31a3edae.css.map",
     "main.70796663.js.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.70796663.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a84bea5.css",
+    "static/css/main.31a3edae.css",
     "static/js/main.70796663.js"
   ]
 }
