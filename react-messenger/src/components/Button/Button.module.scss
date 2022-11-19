@@ -1,0 +1,32 @@
+@use '../../scss/variables';
+@use '../../scss/extends';
+
+.default {
+  @extend .flex-center, .edging-none;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: variables.$light-color;
+  background-color: variables.$dark-color;
+
+  &:hover {
+    filter: brightness(120%);
+  }
+
+  &:active {
+    filter: brightness(140%);
+  }
+}
+
+.gradient {
+  @extend .default;
+
+  width: 46px;
+  height: 46px;
+  color: #ffffff;
+  background: variables.$gradient-color;
+  background: variables.$gradient;
+}

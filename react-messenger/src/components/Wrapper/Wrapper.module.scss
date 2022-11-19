@@ -1,0 +1,27 @@
+@use '../../scss/variables';
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wrapper {
+    display: flex;
+    margin: 16px;
+    padding: 8px;
+    width: 768px;
+    overflow: auto;
+    border-radius: 16px;
+    opacity: variables.$opacity;
+    background-color: variables.$dark-color;
+
+    @media screen and (max-width: 767px) {
+      margin: 8px;
+    }
+  }
+}

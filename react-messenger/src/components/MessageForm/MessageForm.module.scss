@@ -1,0 +1,33 @@
+@use '../../scss/variables';
+@use '../../scss/extends';
+
+.container {
+  width: 768px;
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+  opacity: variables.$opacity;
+
+  .messageInput {
+    height: 46px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: variables.$dark-color;
+
+    input {
+      @extend .edging-none;
+      flex: 1;
+      min-width: 1px;
+      padding-left: 8px;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 21px;
+      background-color: variables.$dark-color;
+    }
+  }
+}

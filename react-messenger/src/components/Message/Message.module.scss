@@ -1,0 +1,82 @@
+@use '../../scss/variables';
+@use '../../scss/extends';
+
+.message {
+  display: flex;
+  max-width: 70%;
+  margin-bottom: 6px;
+  padding: 12px;
+  opacity: variables.$opacity;
+
+  @media screen and (max-width: 767px) {
+    max-width: 80%;
+  }
+
+  &:first-child {
+    margin-bottom: 0;
+  }
+
+  &:last-child {
+    margin-top: 16px;
+
+    @media screen and (max-width: 767px) {
+      margin-top: 8px;
+    }
+  }
+
+  .data {
+    @extend .flex-column;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #ffffff;
+    gap: 4px;
+
+    .date {
+      display: flex;
+      align-self: flex-end;
+      font-size: 12px;
+      font-weight: 400;
+      color: variables.$light-color;
+    }
+  }
+}
+
+.left {
+  align-self: flex-start;
+  background-color: variables.$dark-color;
+  border-radius: 16px 16px 16px 0;
+  animation: left-scale 0.3s;
+
+  @keyframes left-scale {
+    from {
+      transform: scale(0);
+      transform-origin: bottom left;
+    }
+
+    to {
+      transform: scale(1);
+      transform-origin: bottom left;
+    }
+  }
+}
+
+.right {
+  align-self: flex-end;
+  background: variables.$gradient-color;
+  background: variables.$gradient;
+  border-radius: 16px 16px 0 16px;
+  animation: right-scale 0.3s;
+
+  @keyframes right-scale {
+    from {
+      transform: scale(0);
+      transform-origin: bottom right;
+    }
+
+    to {
+      transform: scale(1);
+      transform-origin: bottom right;
+    }
+  }
+}
