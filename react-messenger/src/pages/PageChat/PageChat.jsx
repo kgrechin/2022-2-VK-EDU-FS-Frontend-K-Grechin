@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
@@ -19,7 +20,9 @@ const profileMeta = {
   image: 'https://bit.ly/3TbYR88',
 }
 
-const PageChat = ({ setPage }) => {
+const PageChat = () => {
+  const params = useParams()
+
   const [messages, setMessages] = useState(() => {
     return JSON.parse(localStorage.getItem('messages')) || []
   })
@@ -29,6 +32,7 @@ const PageChat = ({ setPage }) => {
   }, [messages])
 
   const getMessages = () => {
+    console.log(params)
     // здесь будет GET с id из useParamps
     return messages.map((item, index) => (
       <Message position={'right'} key={item.id} date={item.date}>
@@ -40,9 +44,11 @@ const PageChat = ({ setPage }) => {
   return (
     <>
       <Header className={styles.header}>
-        <Button onClick={() => setPage('chatlist')}>
-          <ArrowBackIcon />
-        </Button>
+        <Link to="/">
+          <Button>
+            <ArrowBackIcon />
+          </Button>
+        </Link>
         <ProfileMeta {...profileMeta} />
         <Button>
           <SearchIcon />

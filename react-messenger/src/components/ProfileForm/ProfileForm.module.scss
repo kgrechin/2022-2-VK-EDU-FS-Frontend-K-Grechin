@@ -1,0 +1,56 @@
+@use '../../scss/extends';
+@use '../../scss/variables';
+
+.form {
+  @extend .flex-column;
+  width: 70%;
+  gap: 42px;
+  overflow: scroll;
+
+  @media screen and (max-width: 767px) {
+    width: 80%;
+    gap: 24px;
+  }
+
+  .image {
+    width: 124px;
+    height: 124px;
+    border-radius: 100%;
+    object-fit: cover;
+    align-self: center;
+
+    @media screen and (max-width: 767px) {
+      width: 82px;
+      height: 82px;
+    }
+  }
+
+  .inputblock {
+    @extend .flex-column;
+    gap: 8px;
+
+    label {
+      align-self: center;
+      font-size: 16px;
+      font-weight: 400;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: variables.$light-color;
+    }
+  }
+
+  input,
+  textarea {
+    @extend .edging-none;
+    background-color: variables.$dark-hover-color;
+    border-radius: 8px;
+    padding: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
