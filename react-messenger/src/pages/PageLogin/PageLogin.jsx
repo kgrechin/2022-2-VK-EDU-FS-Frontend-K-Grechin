@@ -10,6 +10,8 @@ import Wrapper from '../../components/Wrapper'
 
 import styles from './PageLogin.module.scss'
 
+import logo from '../../images/login.png'
+
 const PageLogin = () => {
   const { setTokens, setUser } = useContext(LoginContext)
 
@@ -20,14 +22,14 @@ const PageLogin = () => {
 
       const user = await getUser(tokens.access_token)
       setUser(user)
-    },
+    }
   })
 
   return (
     <>
       <Wrapper className={styles.wrapper}>
         <Button onClick={login} className={styles.button}>
-          <img src={'/img/login.png'} alt={''} />
+          <img src={logo} alt={''} />
         </Button>
       </Wrapper>
     </>

@@ -17,6 +17,7 @@ export const CentrifugoProvider = ({ children }) => {
 
   useEffect(() => {
     user && init()
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
 
   const init = async () => {
@@ -34,6 +35,7 @@ export const CentrifugoProvider = ({ children }) => {
 
   useEffect(() => {
     loading && subscribe()
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading])
 
   const subscribe = () => {
