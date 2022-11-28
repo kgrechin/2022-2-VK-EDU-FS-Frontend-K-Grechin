@@ -1,9 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import SearchIcon from '@mui/icons-material/Search'
+
+import { CentrifugoContext } from '../../contexts/CentrifugoContext'
+import { LoginContext } from '../../contexts/LoginContext'
+
+import { getChatMessages } from '../../utils/requests'
 
 import Button from '../../components/Button'
 import Header from '../../components/Header'
@@ -14,32 +19,53 @@ import Wrapper from '../../components/Wrapper'
 
 import styles from './PageChat.module.scss'
 
-const profileMeta = {
-  name: 'Дженнифер',
-  activity: 'была 2 чаза назад',
-  image: 'https://bit.ly/3TbYR88',
-}
-
 const PageChat = () => {
   const params = useParams()
 
-  const [messages, setMessages] = useState(() => {
-    return JSON.parse(localStorage.getItem('messages')) || []
-  })
+  const { user, tokens } = useContext(LoginContext)
+  const { chats, centrifugo } = useContext(CentrifugoContext)
+
+  const [loading, setLoading] = useState(false)
+  const [messages, setMessages] = useState(null)
 
   useEffect(() => {
-    localStorage.setItem('messages', JSON.stringify(messages))
-  }, [messages])
+    chats && !loading && init()
+  }, [chats])
 
-  const getMessages = () => {
-    console.log(params)
-    // здесь будет GET с id из useParamps
-    return messages.map((item, index) => (
-      <Message position={'right'} key={item.id} date={item.date}>
-        {item.data}
-      </Message>
-    ))
+  const init = async () => {
+    const messages = await getChatMessages(tokens.access_token, params.uuid)
+    setMessages(messages)
+    setLoading(true)
+
+    const sub = centrifugo._subs[params.uuid]
+    sub.on('publication', (ctx) => {
+      setMessages((prev) => [ctx.data, ...prev])
+    })
   }
+
+  const getProfileMeta = () => {
+    return {
+      name: chats && chats.find((chat) => chat.id === params.uuid).title
+    }
+  }
+
+  const renderMessages = () =>
+    messages &&
+    messages.map((message) => {
+      const position = message.user.id === user.id ? 'right' : 'left'
+      const date = new Date(message.created_at).toLocaleTimeString('ru', {
+        hour: 'numeric',
+        minute: 'numeric'
+      })
+
+      console.log()
+
+      return (
+        <Message key={message.id} position={position} date={date}>
+          {message.text}
+        </Message>
+      )
+    })
 
   return (
     <>
@@ -49,7 +75,7 @@ const PageChat = () => {
             <ArrowBackIcon />
           </Button>
         </Link>
-        <ProfileMeta {...profileMeta} />
+        <ProfileMeta {...getProfileMeta()} />
         <Button>
           <SearchIcon />
         </Button>
@@ -57,23 +83,9 @@ const PageChat = () => {
           <MoreVertIcon />
         </Button>
       </Header>
-      <Wrapper className={styles.wrapper}>
-        {getMessages()}
-        <Message position={'right'} date={'21:50'}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque nemo
-          quod ea veniam maiores voluptatum voluptate exercitationem vel ipsam
-          rerum, ratione, amet excepturi aut a vero dicta consequuntur corrupti
-          id?
-        </Message>
-        <Message position={'left'} date={'21:48'}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quae
-          iste cupiditate molestias! Numquam aliquid iusto aut ex repellat iste
-          similique officiis facilis qui? Voluptatibus possimus cum atque
-          maiores adipisci!
-        </Message>
-      </Wrapper>
+      <Wrapper className={styles.wrapper}>{renderMessages()}</Wrapper>
       <div className={styles.input}>
-        <MessageForm messages={messages} setMessages={setMessages} />
+        <MessageForm />
       </div>
     </>
   )

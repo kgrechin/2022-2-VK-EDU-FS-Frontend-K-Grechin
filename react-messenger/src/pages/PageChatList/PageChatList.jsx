@@ -2,7 +2,11 @@ import CreateIcon from '@mui/icons-material/Create'
 import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
 
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+
+import { CentrifugoContext } from '../../contexts/CentrifugoContext'
+import { LoginContext } from '../../contexts/LoginContext'
 
 import Button from '../../components/Button'
 import Header from '../../components/Header'
@@ -12,21 +16,51 @@ import Wrapper from '../../components/Wrapper'
 
 import styles from './PageChatList.module.scss'
 
-// будет GET с получением чатов и цикл с выводом и добавлением ссылок
-const chatID = '111'
-
-const profileMeta = {
-  name: 'Дженнифер',
-  activity: 'Ну чо там как там',
-  image: 'https://bit.ly/3TbYR88',
-}
-
-const messageMeta = {
-  date: '21:48',
-  status: 'done_all',
-}
-
 const PageChatList = () => {
+  const { user } = useContext(LoginContext)
+  const { chats } = useContext(CentrifugoContext)
+
+  const getProfileMeta = (chat) => {
+    const activity =
+      chat.last_message.user.id === user.id
+        ? `Вы: ${chat.last_message.text}`
+        : chat.last_message.text
+    return {
+      avatar: chat.avatar,
+      name: chat.title,
+      activity: activity
+    }
+  }
+
+  const getMessageMeta = (chat) => {
+    const convertDate = (date) =>
+      new Date(date).toLocaleTimeString('ru', {
+        hour: 'numeric',
+        minute: 'numeric'
+      })
+    const date = chat.last_message.created_at || chat.created_at
+    return {
+      date: convertDate(date)
+    }
+  }
+
+  const renderChats = () =>
+    chats &&
+    chats.map((chat) => {
+      return (
+        <Link
+          key={chat.id}
+          to={`${chat.id}`}
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+          <div className={styles.meta}>
+            <ProfileMeta {...getProfileMeta(chat)} />
+            <MessageMeta {...getMessageMeta(chat)} />
+          </div>
+        </Link>
+      )
+    })
+
   return (
     <>
       <Header className={styles.header}>
@@ -40,12 +74,7 @@ const PageChatList = () => {
         </Button>
       </Header>
       <Wrapper className={styles.wrapper}>
-        <Link to={`chat/${chatID}`} style={{ textDecoration: 'none' }}>
-          <div className={styles.meta}>
-            <ProfileMeta {...profileMeta} />
-            <MessageMeta {...messageMeta} />
-          </div>
-        </Link>
+        {renderChats()}
         <Button variant={'gradient'} className={styles.create}>
           <CreateIcon />
         </Button>

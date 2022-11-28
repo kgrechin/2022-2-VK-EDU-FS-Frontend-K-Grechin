@@ -2,13 +2,13 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 
 import styles from './ProfileMeta.module.scss'
 
-const ProfileMeta = ({ image, name, activity }) => {
+const ProfileMeta = ({ avatar, name, activity }) => {
   return (
     <div className={styles.meta}>
-      {image ? (
-        <img src={image} alt={''} className={styles.image} />
+      {avatar ? (
+        <img src={avatar} alt={''} className={styles.image} />
       ) : (
-        <AccountCircleIcon className={styles.image} />
+        <img src={'/img/account.png'} alt={''} className={styles.image} />
       )}
       <div className={styles.data}>
         <span className={styles.name}>{name}</span>

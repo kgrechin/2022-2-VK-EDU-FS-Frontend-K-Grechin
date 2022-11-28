@@ -1,0 +1,23 @@
+@use '../../scss/extends';
+@use '../../scss/variables';
+
+.wrapper {
+  @extend .flex-column, .flex-center;
+
+  .button {
+    width: 100px;
+    height: 100px;
+
+    &:hover {
+      filter: none;
+    }
+
+    &:active {
+      filter: none;
+    }
+
+    img {
+      width: inherit;
+    }
+  }
+}

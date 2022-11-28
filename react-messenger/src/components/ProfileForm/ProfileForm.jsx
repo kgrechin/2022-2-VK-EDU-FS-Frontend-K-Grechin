@@ -10,7 +10,7 @@ const ProfileForm = ({ profile, changeProfile }) => {
       {image ? (
         <img src={image} alt={''} className={styles.image} />
       ) : (
-        <AccountCircleIcon className={styles.image} />
+        <img src={'/img/account.png'} alt={''} className={styles.image} />
       )}
       <div className={styles.inputblock}>
         <label>Имя</label>
