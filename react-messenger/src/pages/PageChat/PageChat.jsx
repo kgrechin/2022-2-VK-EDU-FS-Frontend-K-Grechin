@@ -30,6 +30,7 @@ const PageChat = () => {
 
   useEffect(() => {
     chats && !loading && init()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chats])
 
   const init = async () => {
