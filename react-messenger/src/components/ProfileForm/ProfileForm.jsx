@@ -1,6 +1,6 @@
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-
 import styles from './ProfileForm.module.scss'
+
+import logo from '../../images/account.png'
 
 const ProfileForm = ({ profile, changeProfile }) => {
   const { image, name, username, bio } = profile
@@ -10,7 +10,7 @@ const ProfileForm = ({ profile, changeProfile }) => {
       {image ? (
         <img src={image} alt={''} className={styles.image} />
       ) : (
-        <AccountCircleIcon className={styles.image} />
+        <img src={logo} alt={''} className={styles.image} />
       )}
       <div className={styles.inputblock}>
         <label>Имя</label>

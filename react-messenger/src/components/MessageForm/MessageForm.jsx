@@ -1,28 +1,31 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 import AttachmentIcon from '@mui/icons-material/Attachment'
 import SendIcon from '@mui/icons-material/Send'
 
 import Button from '../Button'
 
+import { LoginContext } from '../../contexts/LoginContext'
+
+import { sendMessageToChat } from '../../utils/requests'
+
 import styles from './MessageForm.module.scss'
 
-const MessageInput = ({ messages, setMessages }) => {
+const MessageInput = () => {
+  const params = useParams()
+
   const [input, setInput] = useState('')
+
+  const { tokens } = useContext(LoginContext)
 
   const sendMessage = () => {
     if (input.trim() === '') {
       return
     }
-    const message = {
-      id: Math.random(), // пока что, чтобы не по индексам смотрел в массиве
-      data: input,
-      date: new Date().toLocaleTimeString('ru', {
-        hour: 'numeric',
-        minute: 'numeric',
-      }),
-    }
-    setMessages([message, ...messages])
+    sendMessageToChat(tokens.access_token, params.uuid, {
+      text: input
+    })
     setInput('')
   }
 
