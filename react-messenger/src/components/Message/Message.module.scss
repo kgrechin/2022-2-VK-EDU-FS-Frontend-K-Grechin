@@ -1,18 +1,31 @@
 @use '../../scss/variables';
 @use '../../scss/extends';
 
+.voice {
+  width: 300px !important;
+
+  @media screen and (max-width: 767px) {
+    width: 200px !important;
+  }
+
+  button {
+    background-color: transparent;
+    border: 2px solid variables.$light-color;
+  }
+}
+
 .message {
   display: flex;
-  max-width: 70%;
+  max-width: 50%;
   margin-bottom: 6px;
-  padding: 12px;
+  padding: 8px;
   opacity: variables.$opacity;
 
   @media screen and (max-width: 767px) {
-    max-width: 80%;
+    max-width: 60%;
   }
 
-  &:first-child {
+  &:nth-child(2) {
     margin-bottom: 0;
   }
 
@@ -31,6 +44,19 @@
     line-height: 18px;
     color: #ffffff;
     gap: 4px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+
+    a {
+      text-decoration: none;
+      color: #abcdff;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #c2daff;
+    }
 
     .date {
       display: flex;
@@ -38,6 +64,12 @@
       font-size: 12px;
       font-weight: 400;
       color: variables.$light-color;
+
+      .sender {
+        margin-right: 4px;
+        font-size: 12px;
+        font-weight: 400;
+      }
     }
   }
 }

@@ -23,3 +23,20 @@ html {
   background: variables.$blackout,
     url('../public/img/bg.jpg') center center/cover no-repeat;
 }
+
+.Toastify__toast {
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: variables.$gradient-color;
+  background: variables.$gradient;
+}
+
+.Toastify__close-button {
+  display: none;
+}
+
+.Toastify__toast-container--top-center {
+  top: 60px;
+}

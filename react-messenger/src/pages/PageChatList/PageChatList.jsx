@@ -14,17 +14,34 @@ import MessageMeta from '../../components/MessageMeta'
 import ProfileMeta from '../../components/ProfileMeta'
 import Wrapper from '../../components/Wrapper'
 
+import 'react-toastify/dist/ReactToastify.css'
 import styles from './PageChatList.module.scss'
 
 const PageChatList = () => {
   const { user } = useContext(LoginContext)
   const { chats } = useContext(CentrifugoContext)
 
+  const getActivity = ({ last_message, is_private }) => {
+    const activityTemplate = (data) =>
+      last_message.user.id === user.id
+        ? `Вы: ${data}`
+        : is_private
+        ? data
+        : `${last_message.user.first_name} ${last_message.user.last_name}: ${data}`
+
+    if (last_message.text) {
+      return activityTemplate(last_message.text)
+    }
+    if (last_message.voice) {
+      return activityTemplate('Голосовое сообщение')
+    }
+    if (last_message.images) {
+      return activityTemplate('Изображение')
+    }
+  }
+
   const getProfileMeta = (chat) => {
-    const activity =
-      chat.last_message.user.id === user.id
-        ? `Вы: ${chat.last_message.text}`
-        : chat.last_message.text
+    const activity = getActivity(chat)
     return {
       avatar: chat.avatar,
       name: chat.title,
