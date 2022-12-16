@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const API_URL = process.env.REACT_APP_BACKEND_URL
 
 export const getTokens = async (googleToken) => {
@@ -16,6 +18,21 @@ export const getTokens = async (googleToken) => {
   })
   return await response.json()
 }
+
+export const getCentrifugeToken = (url, ctx, access_token) =>
+  new Promise((resolve, reject) =>
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + access_token,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(ctx)
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(data.token))
+      .catch((error) => reject(error))
+  )
 
 export const getUser = async (access_token) => {
   const response = await fetch(`${API_URL}/api/user/`, {
@@ -45,13 +62,13 @@ export const getChatMessages = async (access_token, chat_id) => {
 }
 
 export const sendMessageToChat = async (access_token, chat_id, body) => {
-  const response = await fetch(`${API_URL}/api/messages/${chat_id}/`, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: {
-      Authorization: 'Bearer ' + access_token,
-      'Content-Type': 'application/json'
-    }
-  })
-  return await response.json()
+  axios
+    .post(`${API_URL}/api/messages/${chat_id}/`, body, {
+      headers: {
+        Authorization: 'Bearer ' + access_token,
+        'content-type': 'multipart/form-data'
+      }
+    })
+    .then((res) => res.data)
+    .catch((err) => console.log(err))
 }

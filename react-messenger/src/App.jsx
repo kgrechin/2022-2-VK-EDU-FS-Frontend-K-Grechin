@@ -7,6 +7,9 @@ import PageProfile from './pages/PageProfile'
 
 import PrivateRoute from './utils/PrivateRoute'
 
+import { ToastContainer } from 'react-toastify'
+
+import { AttachmentProvider } from './contexts/AttachmentContext'
 import { CentrifugoProvider } from './contexts/CentrifugoContext'
 import { LoginProvider } from './contexts/LoginContext'
 
@@ -28,7 +31,9 @@ const App = () => {
               path="/:uuid"
               element={
                 <PrivateRoute>
-                  <PageChat />
+                  <AttachmentProvider>
+                    <PageChat />
+                  </AttachmentProvider>
                 </PrivateRoute>
               }
             />
@@ -49,6 +54,7 @@ const App = () => {
               }
             />
           </Routes>
+          <ToastContainer />
         </CentrifugoProvider>
       </LoginProvider>
     </HashRouter>

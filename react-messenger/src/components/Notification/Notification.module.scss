@@ -1,0 +1,26 @@
+@use '../../scss/extends';
+@use '../../scss/variables';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  .image {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 12px;
+  }
+
+  .data {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .message {
+      color: variables.$light-color;
+    }
+  }
+}
