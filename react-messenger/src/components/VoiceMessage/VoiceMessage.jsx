@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import WaveSurfer from 'wavesurfer.js'
+import { WAVESURFER_DATA } from '../../constants/appData'
 
 import PauseIcon from '@mui/icons-material/Pause'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
@@ -23,18 +24,8 @@ const VoiceMessage = ({ audioFile, url, style }) => {
   useEffect(() => {
     if (waveformRef.current) {
       const surfer = WaveSurfer.create({
-        container: waveformRef.current,
-        backend: 'WebAudio',
-        height: 40,
-        progressColor: '#046945',
-        responsive: true,
-        waveColor: '#aaaaaa',
-        cursorColor: 'transparent',
-        hideScrollbar: true,
-        barWidth: 2,
-        barMinHeight: 2,
-        barRadius: 2,
-        barGap: 2
+        ...WAVESURFER_DATA,
+        container: waveformRef.current
       })
       surfer.on('play', () => {
         surfer.setProgressColor('#046945')
@@ -57,8 +48,7 @@ const VoiceMessage = ({ audioFile, url, style }) => {
     if (waveSurfer) {
       url ? waveSurfer.load(url) : waveSurfer.loadBlob(audioFile)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [waveSurfer])
+  }, [waveSurfer, audioFile, url])
 
   const togglePlayPause = () => {
     waveSurfer.playPause()

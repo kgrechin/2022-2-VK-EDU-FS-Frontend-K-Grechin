@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
@@ -6,11 +7,8 @@ import ImageIcon from '@mui/icons-material/Image'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import SearchIcon from '@mui/icons-material/Search'
 
+import { getMessages } from '../../actions/messages'
 import { AttachmentContext } from '../../contexts/AttachmentContext'
-import { CentrifugoContext } from '../../contexts/CentrifugoContext'
-import { LoginContext } from '../../contexts/LoginContext'
-
-import { getChatMessages } from '../../utils/requests'
 
 import AttachmentMenu from '../../components/AttachmentMenu'
 import Button from '../../components/Button'
@@ -24,35 +22,22 @@ import Wrapper from '../../components/Wrapper'
 
 import styles from './PageChat.module.scss'
 
-const PageChat = () => {
-  const params = useParams()
+const PageChat = ({ chats, user, storeMessages, getMessages }) => {
+  const { uuid } = useParams()
 
   const [chat, setChat] = useState(null)
+  const messages = storeMessages[uuid]
 
-  const { user, tokens } = useContext(LoginContext)
-  const { chats, centrifugo } = useContext(CentrifugoContext)
   const { images, attachmentMenu, getRootProps, getInputProps, isDragActive } =
     useContext(AttachmentContext)
 
-  const [loading, setLoading] = useState(false)
-  const [messages, setMessages] = useState(null)
+  useEffect(() => {
+    chats && setChat(chats.find((chat) => chat.id === uuid))
+  }, [chats, uuid])
 
   useEffect(() => {
-    chats && !loading && init()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chats])
-
-  const init = async () => {
-    const messages = await getChatMessages(tokens.access_token, params.uuid)
-    setMessages(messages)
-    setLoading(true)
-
-    const sub = centrifugo._subs[params.uuid]
-    sub.on('publication', (ctx) => {
-      setMessages((prev) => [ctx.data, ...prev])
-    })
-    setChat(chats.find((chat) => chat.id === params.uuid))
-  }
+    chats && !messages && getMessages(uuid)
+  }, [messages, uuid, chats, getMessages])
 
   const getProfileMeta = () => {
     return (
@@ -111,49 +96,60 @@ const PageChat = () => {
 
   return (
     <>
-      <Header className={styles.header}>
-        <Link to="/">
-          <Button>
-            <ArrowBackIcon />
-          </Button>
-        </Link>
-        <ProfileMeta {...getProfileMeta()} />
-        <Button>
-          <SearchIcon />
-        </Button>
-        <Button>
-          <MoreVertIcon />
-        </Button>
-      </Header>
+      {chat && (
+        <>
+          <Header className={styles.header}>
+            <Link to="/">
+              <Button>
+                <ArrowBackIcon />
+              </Button>
+            </Link>
+            <ProfileMeta {...getProfileMeta()} />
+            <Button>
+              <SearchIcon />
+            </Button>
+            <Button>
+              <MoreVertIcon />
+            </Button>
+          </Header>
 
-      <Wrapper
-        dragProps={getRootProps()}
-        className={!isDragActive ? styles.wrapper : styles.dragWrapper}
-      >
-        <input {...getInputProps()} />
-        {!isDragActive ? (
-          renderMessages()
-        ) : (
-          <>
-            <span>Перетащите картинки прямо сюда</span>
-            <div>
-              <ImageIcon fontSize="inherit" />
+          <Wrapper
+            dragProps={getRootProps()}
+            className={!isDragActive ? styles.wrapper : styles.dragWrapper}
+          >
+            <input {...getInputProps()} />
+            {!isDragActive ? (
+              renderMessages()
+            ) : (
+              <>
+                <span>Перетащите картинки прямо сюда</span>
+                <div>
+                  <ImageIcon fontSize="inherit" />
+                </div>
+              </>
+            )}
+          </Wrapper>
+
+          {images.length > 0 && !isDragActive && <ImagesPreview />}
+
+          {attachmentMenu && !isDragActive && <AttachmentMenu />}
+
+          {!isDragActive && (
+            <div className={styles.input}>
+              <MessageForm />
             </div>
-          </>
-        )}
-      </Wrapper>
-
-      {images.length > 0 && !isDragActive && <ImagesPreview />}
-
-      {attachmentMenu && !isDragActive && <AttachmentMenu />}
-
-      {!isDragActive && (
-        <div className={styles.input}>
-          <MessageForm />
-        </div>
+          )}
+        </>
       )}
     </>
   )
 }
 
-export default PageChat
+const mapStateToProps = (state) => ({
+  tokens: state.auth.tokens,
+  user: state.auth.user,
+  chats: state.chats,
+  storeMessages: state.messages
+})
+
+export default connect(mapStateToProps, { getMessages })(PageChat)

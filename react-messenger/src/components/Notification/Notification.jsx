@@ -6,10 +6,6 @@ import styles from './Notification.module.scss'
 const Notification = ({ user, text, images, voice, chat }) => {
   const navigate = useNavigate()
 
-  console.log('text', text)
-  console.log('images', images)
-  console.log('voice', voice)
-
   const message = text
     ? text
     : images.length > 0
@@ -22,7 +18,6 @@ const Notification = ({ user, text, images, voice, chat }) => {
     <div
       onClick={() => {
         navigate(chat.id)
-        window.location.reload()
       }}
       className={styles.wrapper}
     >

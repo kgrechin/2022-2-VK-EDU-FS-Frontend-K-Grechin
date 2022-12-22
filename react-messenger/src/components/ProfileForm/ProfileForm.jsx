@@ -1,17 +1,11 @@
 import styles from './ProfileForm.module.scss'
 
-import logo from '../../images/account.png'
-
 const ProfileForm = ({ profile, changeProfile }) => {
   const { image, name, username, bio } = profile
 
   return (
     <div className={styles.form}>
-      {image ? (
-        <img src={image} alt={''} className={styles.image} />
-      ) : (
-        <img src={logo} alt={''} className={styles.image} />
-      )}
+      <img src={image} alt={''} className={styles.image} />
       <div className={styles.inputblock}>
         <label>Имя</label>
         <input
