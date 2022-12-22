@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.25e8c1f3.css",
-    "main.js": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.24d10c46.js",
+    "main.css": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.a405741c.css",
+    "main.js": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.91ccda81.js",
     "static/media/bg.jpg": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/media/bg.fed4bbfd0995337c401d.jpg",
-    "static/media/login.png": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/media/login.0590aaf0fe36e23dcc8c.png",
     "index.html": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/index.html",
-    "main.25e8c1f3.css.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.25e8c1f3.css.map",
-    "main.24d10c46.js.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.24d10c46.js.map"
+    "main.a405741c.css.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.a405741c.css.map",
+    "main.91ccda81.js.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.91ccda81.js.map"
   },
   "entrypoints": [
-    "static/css/main.25e8c1f3.css",
-    "static/js/main.24d10c46.js"
+    "static/css/main.a405741c.css",
+    "static/js/main.91ccda81.js"
   ]
 }
