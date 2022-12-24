@@ -1,6 +1,7 @@
 import {
   GET_AUTH_DATA_FAILURE,
-  GET_AUTH_DATA_SUCCESS
+  GET_AUTH_DATA_SUCCESS,
+  LOGOUT
 } from '../constants/actionTypes'
 
 const initialState = localStorage.getItem('auth')
@@ -19,6 +20,11 @@ const authReducer = (state = initialState, action) => {
       }
     case GET_AUTH_DATA_FAILURE:
       console.log(action.payload.message)
+      return {
+        user: null,
+        tokens: null
+      }
+    case LOGOUT:
       return {
         user: null,
         tokens: null

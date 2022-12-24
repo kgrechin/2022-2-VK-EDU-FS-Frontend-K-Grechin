@@ -2,7 +2,8 @@ import axios from 'axios'
 
 import {
   GET_AUTH_DATA_FAILURE,
-  GET_AUTH_DATA_SUCCESS
+  GET_AUTH_DATA_SUCCESS,
+  LOGOUT
 } from '../constants/actionTypes'
 
 import {
@@ -56,4 +57,9 @@ export const getAuthData = (googleToken) => (dispatch, getState) => {
         .catch((err) => dispatch(getAuthDataFailure(err)))
     )
     .catch((err) => dispatch(getAuthDataFailure(err)))
+}
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem('auth')
+  return dispatch({ type: LOGOUT })
 }
