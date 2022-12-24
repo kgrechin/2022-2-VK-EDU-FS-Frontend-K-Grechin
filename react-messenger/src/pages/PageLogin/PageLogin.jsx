@@ -1,27 +1,18 @@
 import { useGoogleLogin } from '@react-oauth/google'
-import { useContext } from 'react'
-
-import { LoginContext } from '../../contexts/LoginContext'
-
-import { getTokens, getUser } from '../../utils/requests'
+import { connect } from 'react-redux'
 
 import Button from '../../components/Button'
 import Wrapper from '../../components/Wrapper'
 
+import { getAuthData } from '../../actions/auth'
+import { MEDIA_URL } from '../../constants/api'
+
 import styles from './PageLogin.module.scss'
 
-import logo from '../../images/login.png'
-
-const PageLogin = () => {
-  const { setTokens, setUser } = useContext(LoginContext)
-
+const PageLogin = (props) => {
   const login = useGoogleLogin({
-    onSuccess: async (tokensResponse) => {
-      const tokens = await getTokens(tokensResponse.access_token)
-      setTokens(tokens)
-
-      const user = await getUser(tokens.access_token)
-      setUser(user)
+    onSuccess: ({ access_token }) => {
+      props.getAuthData(access_token)
     }
   })
 
@@ -29,11 +20,13 @@ const PageLogin = () => {
     <>
       <Wrapper className={styles.wrapper}>
         <Button onClick={login} className={styles.button}>
-          <img src={logo} alt={''} />
+          <img src={`${MEDIA_URL}/login.png`} alt={''} />
         </Button>
       </Wrapper>
     </>
   )
 }
 
-export default PageLogin
+export default connect(null, {
+  getAuthData
+})(PageLogin)

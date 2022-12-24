@@ -2,11 +2,8 @@ import CreateIcon from '@mui/icons-material/Create'
 import MenuIcon from '@mui/icons-material/Menu'
 import SearchIcon from '@mui/icons-material/Search'
 
-import { useContext } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-
-import { CentrifugoContext } from '../../contexts/CentrifugoContext'
-import { LoginContext } from '../../contexts/LoginContext'
 
 import Button from '../../components/Button'
 import Header from '../../components/Header'
@@ -17,10 +14,7 @@ import Wrapper from '../../components/Wrapper'
 import 'react-toastify/dist/ReactToastify.css'
 import styles from './PageChatList.module.scss'
 
-const PageChatList = () => {
-  const { user } = useContext(LoginContext)
-  const { chats } = useContext(CentrifugoContext)
-
+const PageChatList = ({ user, chats }) => {
   const getActivity = ({ last_message, is_private }) => {
     const activityTemplate = (data) =>
       last_message.user.id === user.id
@@ -100,4 +94,9 @@ const PageChatList = () => {
   )
 }
 
-export default PageChatList
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+  chats: state.chats
+})
+
+export default connect(mapStateToProps)(PageChatList)

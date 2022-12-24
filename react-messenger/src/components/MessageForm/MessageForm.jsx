@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { useReactMediaRecorder } from 'react-media-recorder'
+import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 import AttachmentIcon from '@mui/icons-material/Attachment'
@@ -10,20 +11,17 @@ import SendIcon from '@mui/icons-material/Send'
 import Button from '../Button'
 import VoiceMessage from '../VoiceMessage'
 
+import { sendMessage } from '../../actions/messages'
 import { AttachmentContext } from '../../contexts/AttachmentContext'
-import { LoginContext } from '../../contexts/LoginContext'
-
-import { sendMessageToChat } from '../../utils/requests'
 
 import styles from './MessageForm.module.scss'
 
-const MessageInput = () => {
+const MessageForm = ({ sendMessage }) => {
   const params = useParams()
 
   const [recording, setRecording] = useState(false)
   const [voiceMessage, setVoiceMessage] = useState(null)
 
-  const { tokens } = useContext(LoginContext)
   const { input, setInput, images, setImages, toggleAttachmentMenu } =
     useContext(AttachmentContext)
 
@@ -44,7 +42,7 @@ const MessageInput = () => {
     }
   }, [mediaBlobUrl])
 
-  const sendMessage = () => {
+  const sendMessageToChat = () => {
     if (input.trim() === '' && images.length === 0 && !voiceMessage) {
       return
     }
@@ -57,7 +55,7 @@ const MessageInput = () => {
     formData.append('text', input)
     voiceMessage && formData.append('voice', voiceMessage)
 
-    sendMessageToChat(tokens.access_token, params.uuid, formData)
+    sendMessage(params.uuid, formData)
     setInput('')
     setImages([])
     setVoiceMessage(null)
@@ -79,7 +77,9 @@ const MessageInput = () => {
               value={input}
               disabled={recording}
               onChange={(event) => setInput(event.target.value)}
-              onKeyDown={(event) => event.key === 'Enter' && sendMessage()}
+              onKeyDown={(event) =>
+                event.key === 'Enter' && sendMessageToChat()
+              }
             />
             <Button onClick={toggleAttachmentMenu} disabled={recording}>
               <AttachmentIcon />
@@ -95,7 +95,7 @@ const MessageInput = () => {
         )}
       </div>
       {input.trim() || voiceMessage || images.length > 0 ? (
-        <Button variant={'gradient'} onClick={sendMessage}>
+        <Button variant={'gradient'} onClick={sendMessageToChat}>
           <SendIcon />
         </Button>
       ) : (
@@ -111,4 +111,4 @@ const MessageInput = () => {
   )
 }
 
-export default MessageInput
+export default connect(null, { sendMessage })(MessageForm)
