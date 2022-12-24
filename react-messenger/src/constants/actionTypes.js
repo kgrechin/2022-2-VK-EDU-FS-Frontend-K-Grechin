@@ -1,5 +1,6 @@
 export const GET_AUTH_DATA_SUCCESS = '@@auth/GET_AUTH_DATA_SUCCESS'
 export const GET_AUTH_DATA_FAILURE = '@@auth/GET_AUTH_DATA_FAILURE'
+export const LOGOUT = '@@auth/LOGOUT'
 
 export const ADD_CHAT = '@@chats/ADD_CHAT'
 export const UPDATE_MESSAGE = '@@chats/UPDATE_MESSAGE'
