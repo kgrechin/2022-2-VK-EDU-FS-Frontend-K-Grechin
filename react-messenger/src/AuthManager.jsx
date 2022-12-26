@@ -6,16 +6,18 @@ import PageLogin from './pages/PageLogin'
 
 const AuthManager = ({ auth }) => (
   <>
-    {auth.user && auth.tokens ? (
+    {auth.user && auth.tokens
+      ? (
       <App />
-    ) : (
+        )
+      : (
       <HashRouter>
         <Routes>
           <Route path={'/login'} element={<PageLogin />} />
           <Route path={'*'} element={<Navigate to={'/login'} />} />
         </Routes>
       </HashRouter>
-    )}
+        )}
   </>
 )
 

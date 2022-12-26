@@ -126,9 +126,11 @@ const PageChat = ({ chats, user, storeMessages, getMessages }) => {
         className={!isDragActive ? styles.wrapper : styles.dragWrapper}
       >
         <input {...getInputProps()} />
-        {!isDragActive ? (
-          renderMessages()
-        ) : (
+        {!isDragActive
+          ? (
+              renderMessages()
+            )
+          : (
           <>
             <span className={styles.dragText}>
               Перетащите картинки прямо сюда
@@ -137,7 +139,7 @@ const PageChat = ({ chats, user, storeMessages, getMessages }) => {
               <ImageIcon fontSize="inherit" />
             </div>
           </>
-        )}
+            )}
       </Wrapper>
 
       {images.length > 0 && !isDragActive && <ImagesPreview />}

@@ -86,7 +86,7 @@ class App extends Component {
     new Audio(AUDIO_URL).play()
   }
 
-  render() {
+  render () {
     return (
       <HashRouter>
         <Routes>

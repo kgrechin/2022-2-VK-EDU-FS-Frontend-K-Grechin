@@ -80,7 +80,8 @@ const MessageForm = ({ sendMessage }) => {
   return (
     <div className={styles.container}>
       <div className={styles.messageInput}>
-        {!voiceMessage ? (
+        {!voiceMessage
+          ? (
           <>
             <input
               className={styles.input}
@@ -100,20 +101,23 @@ const MessageForm = ({ sendMessage }) => {
               <AttachmentIcon />
             </Button>
           </>
-        ) : (
+            )
+          : (
           <>
             <VoiceMessage audioFile={voiceMessage} />
             <Button onClick={() => setVoiceMessage(null)}>
               <ClearIcon />
             </Button>
           </>
-        )}
+            )}
       </div>
-      {input.trim() || voiceMessage || images.length > 0 ? (
+      {input.trim() || voiceMessage || images.length > 0
+        ? (
         <Button variant={'gradient'} onClick={sendMessageToChat}>
           <SendIcon />
         </Button>
-      ) : (
+          )
+        : (
         <Button
           variant={'gradient'}
           onClick={toggleRecording}
@@ -121,7 +125,7 @@ const MessageForm = ({ sendMessage }) => {
         >
           <MicIcon />
         </Button>
-      )}
+          )}
     </div>
   )
 }
