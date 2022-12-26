@@ -25,7 +25,7 @@ const getAuthDataFailure = (message) => ({
   payload: message
 })
 
-export const getAuthData = (googleToken) => (dispatch, getState) => {
+export const getAuthData = (googleToken) => (dispatch) => {
   axios
     .post(
       AUTH_URL,

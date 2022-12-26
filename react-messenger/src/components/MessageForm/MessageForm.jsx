@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import AttachmentIcon from '@mui/icons-material/Attachment'
 import ClearIcon from '@mui/icons-material/Clear'
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'
 import MicIcon from '@mui/icons-material/Mic'
 import SendIcon from '@mui/icons-material/Send'
 
@@ -22,8 +23,16 @@ const MessageForm = ({ sendMessage }) => {
   const [recording, setRecording] = useState(false)
   const [voiceMessage, setVoiceMessage] = useState(null)
 
-  const { input, setInput, images, setImages, toggleAttachmentMenu } =
-    useContext(AttachmentContext)
+  const {
+    input,
+    setInput,
+    images,
+    setImages,
+    setEmojiKeyboard,
+    setAttachmentMenu,
+    toggleAttachmentMenu,
+    toggleEmojiKeyboard
+  } = useContext(AttachmentContext)
 
   const { startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder(
     { video: false, audio: true, screen: false }
@@ -59,6 +68,8 @@ const MessageForm = ({ sendMessage }) => {
     setInput('')
     setImages([])
     setVoiceMessage(null)
+    setAttachmentMenu(false)
+    setEmojiKeyboard(false)
   }
 
   const toggleRecording = () => {
@@ -72,6 +83,7 @@ const MessageForm = ({ sendMessage }) => {
         {!voiceMessage ? (
           <>
             <input
+              className={styles.input}
               type="text"
               placeholder="Сообщение"
               value={input}
@@ -81,6 +93,9 @@ const MessageForm = ({ sendMessage }) => {
                 event.key === 'Enter' && sendMessageToChat()
               }
             />
+            <Button onClick={toggleEmojiKeyboard} disabled={recording}>
+              <EmojiEmotionsIcon />
+            </Button>
             <Button onClick={toggleAttachmentMenu} disabled={recording}>
               <AttachmentIcon />
             </Button>

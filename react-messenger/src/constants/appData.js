@@ -22,3 +22,21 @@ export const WAVESURFER_DATA = {
   barRadius: 2,
   barGap: 2
 }
+
+export const EMOJIS = [
+  'angry',
+  'anguished',
+  'eyebrow',
+  'hand',
+  'ok',
+  'pensive',
+  'rolling',
+  'sadrelieved',
+  'savoring',
+  'smiling',
+  'smilingeyes',
+  'thinking',
+  'thumbsup',
+  'upsidedown',
+  'worried'
+]

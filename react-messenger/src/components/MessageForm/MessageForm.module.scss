@@ -18,17 +18,7 @@
     border-radius: 16px;
     background-color: variables.$dark-color;
 
-    audio {
-      flex: 1;
-      background-color: variables.$dark-color;
-    }
-
-    audio::-webkit-media-controls-panel {
-      background-color: variables.$dark-color;
-    }
-
-
-    input {
+    .input {
       @extend .edging-none;
       flex: 1;
       min-width: 1px;

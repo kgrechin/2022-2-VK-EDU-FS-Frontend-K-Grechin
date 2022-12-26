@@ -20,7 +20,7 @@ const PageLogin = (props) => {
     <>
       <Wrapper className={styles.wrapper}>
         <Button onClick={login} className={styles.button}>
-          <img src={`${MEDIA_URL}/login.png`} alt={''} />
+          <img className={styles.image} src={`${MEDIA_URL}/login.png`} alt={''} />
         </Button>
       </Wrapper>
     </>

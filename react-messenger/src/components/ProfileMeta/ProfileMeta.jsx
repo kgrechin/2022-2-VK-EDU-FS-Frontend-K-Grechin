@@ -1,3 +1,4 @@
+import parseEmojis from '../../utils/parseEmojis'
 import styles from './ProfileMeta.module.scss'
 
 const ProfileMeta = ({ avatar, name, activity }) => {
@@ -6,7 +7,7 @@ const ProfileMeta = ({ avatar, name, activity }) => {
       <img src={avatar} alt={''} className={styles.image} />
       <div className={styles.data}>
         <span className={styles.name}>{name}</span>
-        <span className={styles.activity}>{activity}</span>
+        <span className={styles.activity}>{parseEmojis(activity)}</span>
       </div>
     </div>
   )

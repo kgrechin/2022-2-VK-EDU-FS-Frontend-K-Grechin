@@ -41,8 +41,8 @@
     }
   }
 
-  input,
-  textarea {
+  .input,
+  .textarea {
     @extend .edging-none;
     background-color: variables.$dark-hover-color;
     border-radius: 8px;
@@ -52,7 +52,7 @@
     font-weight: 400;
   }
 
-  textarea {
+  .textarea {
     resize: none;
   }
 }

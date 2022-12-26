@@ -1,18 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import parseEmojis from '../../utils/parseEmojis'
+
 import styles from './Notification.module.scss'
 
 const Notification = ({ user, text, images, voice, chat }) => {
   const navigate = useNavigate()
 
-  const message = text
-    ? text
-    : images.length > 0
-    ? 'Изображения'
-    : voice
-    ? 'Голосовое сообщение'
-    : ''
+  const message =
+    text || (images.length > 0
+      ? 'Изображения'
+      : voice
+        ? 'Голосовое сообщение'
+        : '')
 
   return (
     <div
@@ -26,8 +27,8 @@ const Notification = ({ user, text, images, voice, chat }) => {
         <div>{chat.title}</div>
         <div className={styles.message}>
           {!chat.is_private
-            ? `${user.first_name} ${user.last_name}: ${message}`
-            : message}
+            ? parseEmojis(`${user.first_name} ${user.last_name}: ${message}`)
+            : parseEmojis(message)}
         </div>
       </div>
     </div>

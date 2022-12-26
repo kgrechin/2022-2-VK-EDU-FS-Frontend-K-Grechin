@@ -3,6 +3,7 @@ export const USER_URL = process.env.REACT_APP_USER_URL
 export const CHATS_URL = process.env.REACT_APP_CHATS_URL
 export const MEDIA_URL = process.env.REACT_APP_MEDIA_URL
 export const MESSAGES_URL = process.env.REACT_APP_MESSAGES_URL
+export const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
 export const CENTRIFUGE_URL = process.env.REACT_APP_CENTRIFUGO_URL
 export const CENTRIFUGE_CONNECT_URL =
