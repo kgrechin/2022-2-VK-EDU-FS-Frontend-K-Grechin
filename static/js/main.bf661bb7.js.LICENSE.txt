@@ -1,11 +1,4 @@
 /*!
- * dashify <https://github.com/jonschlinkert/dashify>
- *
- * Copyright (c) 2015-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-
-/*!
  * wavesurfer.js 6.4.0 (2022-11-05)
  * https://wavesurfer-js.org
  * @license BSD-3-Clause
@@ -224,7 +217,7 @@
  */
 
 /**
- * @remix-run/router v1.2.1
+ * @remix-run/router v1.0.5
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -235,7 +228,7 @@
  */
 
 /**
- * React Router DOM v6.6.1
+ * React Router DOM v6.4.5
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -246,7 +239,7 @@
  */
 
 /**
- * React Router v6.6.1
+ * React Router v6.4.5
  *
  * Copyright (c) Remix Software Inc.
  *
