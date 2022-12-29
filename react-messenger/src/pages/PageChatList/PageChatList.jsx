@@ -28,8 +28,8 @@ const PageChatList = ({ user, chats, logout }) => {
       last_message.user.id === user.id
         ? `Вы: ${data}`
         : is_private
-        ? data
-        : `${last_message.user.first_name} ${last_message.user.last_name}: ${data}`
+          ? data
+          : `${last_message.user.first_name} ${last_message.user.last_name}: ${data}`
 
     if (last_message.text) {
       return activityTemplate(last_message.text)
@@ -47,7 +47,7 @@ const PageChatList = ({ user, chats, logout }) => {
     return {
       avatar: chat.avatar,
       name: chat.title,
-      activity: activity
+      activity
     }
   }
 
@@ -83,7 +83,8 @@ const PageChatList = ({ user, chats, logout }) => {
   return (
     <>
       <Header className={styles.header}>
-        {menu ? (
+        {menu
+          ? (
           <div className={styles.menu}>
             <Button onClick={() => setMenu(false)}>
               <CloseIcon />
@@ -97,11 +98,12 @@ const PageChatList = ({ user, chats, logout }) => {
               <LogoutIcon />
             </Button>
           </div>
-        ) : (
+            )
+          : (
           <Button onClick={() => setMenu(true)}>
             <MenuIcon />
           </Button>
-        )}
+            )}
         <Button>
           <SearchIcon />
         </Button>

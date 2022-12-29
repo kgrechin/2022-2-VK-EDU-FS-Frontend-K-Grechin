@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify'
 
 import {
   connectCentrifuge,
+  disconnectCentrifuge,
   setInitialSubscribe,
   subscribeChannel
 } from './actions/centrifuge'
@@ -24,6 +25,10 @@ class App extends Component {
   componentDidMount = () => {
     this.props.getChats()
     this.props.connectCentrifuge()
+  }
+
+  componentWillUnmount = () => {
+    this.props.disconnectCentrifuge()
   }
 
   componentDidUpdate = () => {
@@ -81,7 +86,7 @@ class App extends Component {
     new Audio(AUDIO_URL).play()
   }
 
-  render() {
+  render () {
     return (
       <HashRouter>
         <Routes>
@@ -109,6 +114,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   connectCentrifuge,
+  disconnectCentrifuge,
   getChats,
   subscribeChannel,
   addChat,

@@ -3,7 +3,7 @@ import DoneAllIcon from '@mui/icons-material/DoneAll'
 import styles from './MessageMeta.module.scss'
 
 const statuses = {
-  done_all: <DoneAllIcon />,
+  done_all: <DoneAllIcon />
 }
 
 const MessageMeta = ({ date, status = 'done_all' }) => {

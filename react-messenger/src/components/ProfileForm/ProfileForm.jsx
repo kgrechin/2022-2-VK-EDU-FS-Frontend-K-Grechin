@@ -9,6 +9,7 @@ const ProfileForm = ({ profile, changeProfile }) => {
       <div className={styles.inputblock}>
         <label>Имя</label>
         <input
+          className={styles.input}
           type="text"
           value={name}
           onChange={(event) => changeProfile('name', event.target.value)}
@@ -17,6 +18,7 @@ const ProfileForm = ({ profile, changeProfile }) => {
       <div className={styles.inputblock}>
         <label>Имя пользователя</label>
         <input
+          className={styles.input}
           type="text"
           value={username}
           onChange={(event) => changeProfile('username', event.target.value)}
@@ -25,6 +27,7 @@ const ProfileForm = ({ profile, changeProfile }) => {
       <div className={styles.inputblock}>
         <label>О себе</label>
         <textarea
+          className={styles.textarea}
           type="text"
           value={bio}
           onChange={(event) => changeProfile('bio', event.target.value)}

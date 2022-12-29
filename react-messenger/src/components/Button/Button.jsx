@@ -9,6 +9,7 @@ const Button = ({
 }) => {
   return (
     <button
+      aria-label={'button_component'}
       onClick={onClick}
       disabled={disabled}
       children={children}

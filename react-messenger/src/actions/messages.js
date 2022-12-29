@@ -49,7 +49,7 @@ export const sendMessage = (uuid, data) => (dispatch, getState) => {
         'content-type': 'multipart/form-data'
       }
     })
-    .then((res) => dispatch(sendMessageSuccess()))
+    .then(() => dispatch(sendMessageSuccess()))
     .catch((err) => dispatch(sendMessageFailure(err.message)))
 }
 

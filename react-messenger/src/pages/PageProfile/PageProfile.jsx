@@ -15,7 +15,7 @@ const user = {
   image: '',
   name: 'Jony',
   username: 'jjjony',
-  bio: 'ya jony',
+  bio: 'ya jony'
 }
 
 const PageProfile = () => {

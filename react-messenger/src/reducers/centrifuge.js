@@ -1,6 +1,7 @@
 import {
   CENTRIFUGE_CONNECT_FAILURE,
   CENTRIFUGE_CONNECT_SUCCESS,
+  CENTRIFUGE_DISCONNECT,
   CENTRIFUGE_INITIAL_SUBSCRIBE,
   CHANNEL_SUBSCRIBE_FAILURE,
   CHANNEL_SUBSCRIBE_SUCCESS
@@ -32,6 +33,12 @@ const centrifugeReducer = (state = initialState, action) => {
       return {
         ...state,
         initialSubscribe: true
+      }
+    case CENTRIFUGE_DISCONNECT:
+      console.log('centrifuge disconnect')
+      return {
+        centrifuge: null,
+        initialSubscribe: false
       }
     default:
       return state

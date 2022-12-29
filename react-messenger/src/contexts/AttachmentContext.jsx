@@ -6,6 +6,7 @@ export const AttachmentContext = createContext()
 export const AttachmentProvider = ({ children }) => {
   const [input, setInput] = useState('')
   const [images, setImages] = useState([])
+  const [emojiKeyboard, setEmojiKeyboard] = useState(false)
   const [attachmentMenu, setAttachmentMenu] = useState(false)
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -15,6 +16,7 @@ export const AttachmentProvider = ({ children }) => {
   })
 
   const toggleAttachmentMenu = () => setAttachmentMenu((prev) => !prev)
+  const toggleEmojiKeyboard = () => setEmojiKeyboard((prev) => !prev)
 
   return (
     <AttachmentContext.Provider
@@ -27,6 +29,9 @@ export const AttachmentProvider = ({ children }) => {
         attachmentMenu,
         setAttachmentMenu,
         toggleAttachmentMenu,
+        emojiKeyboard,
+        setEmojiKeyboard,
+        toggleEmojiKeyboard,
         getRootProps,
         getInputProps,
         isDragActive

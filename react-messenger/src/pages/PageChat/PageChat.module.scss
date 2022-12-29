@@ -21,7 +21,7 @@
     @extend .flex-column;
     gap: 8px;
 
-    img {
+    .image {
       border-radius: 8px;
       max-width: 100%;
     }
@@ -32,11 +32,11 @@
   @extend .flex-column, .flex-center;
   gap: 10px;
 
-  span {
+  .dragText {
     font-size: 18px;
   }
 
-  div {
+  .dragImageWrapper {
     font-size: 62px;
   }
 }

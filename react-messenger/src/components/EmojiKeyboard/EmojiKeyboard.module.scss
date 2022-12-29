@@ -1,0 +1,105 @@
+.emoji {
+  width: 22px;
+  height: 22px;
+}
+
+.onKeyboard {
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    filter: brightness(1.25);
+  }
+
+  &:active {
+    filter: brightness(1);
+  }
+}
+
+.container {
+  flex: none !important;
+}
+
+.wrapper {
+  margin-bottom: 0 !important;
+  margin-top: 6px !important;
+  height: 64px !important;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  column-gap: 4px;
+}
+
+.angry {
+  background: url('../../assets/emojis/angry.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.anguished {
+  background: url('../../assets/emojis/anguished.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.savoring {
+  background: url('../../assets/emojis/savoring.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.eyebrow {
+  background: url('../../assets/emojis/eyebrow.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.rolling {
+  background: url('../../assets/emojis/rolling.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.hand {
+  background: url('../../assets/emojis/hand.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.ok {
+  background: url('../../assets/emojis/ok.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.pensive {
+  background: url('../../assets/emojis/pensive.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.sadrelieved {
+  background: url('../../assets/emojis/sadrelieved.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.smiling {
+  background: url('../../assets/emojis/smiling.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.smilingeyes {
+  background: url('../../assets/emojis/smilingeyes.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.thinking {
+  background: url('../../assets/emojis/thinking.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.thumbsup {
+  background: url('../../assets/emojis/thumbsup.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.upsidedown {
+  background: url('../../assets/emojis/upsidedown.png?sprite') no-repeat;
+  background-size: 22px;
+}
+
+.worried {
+  background: url('../../assets/emojis/worried.png?sprite') no-repeat;
+  background-size: 22px;
+}

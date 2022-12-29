@@ -9,6 +9,7 @@ import {
 import {
   CENTRIFUGE_CONNECT_FAILURE,
   CENTRIFUGE_CONNECT_SUCCESS,
+  CENTRIFUGE_DISCONNECT,
   CENTRIFUGE_INITIAL_SUBSCRIBE,
   CHANNEL_SUBSCRIBE_FAILURE,
   CHANNEL_SUBSCRIBE_SUCCESS
@@ -44,7 +45,12 @@ export const connectCentrifuge = () => (dispatch, getState) => {
   centrifuge.connect()
   centrifuge.state === 'connecting'
     ? dispatch(connectCentrifugeSuccess(centrifuge))
-    : dispatch(connectCentrifugeFailure(`Can't connect`))
+    : dispatch(connectCentrifugeFailure('Can\'t connect'))
+}
+
+export const disconnectCentrifuge = () => (dispatch, getState) => {
+  getState().centrifuge.centrifuge.disconnect()
+  return dispatch({ type: CENTRIFUGE_DISCONNECT })
 }
 
 const subscribeChannelSuccess = (channel) => ({
