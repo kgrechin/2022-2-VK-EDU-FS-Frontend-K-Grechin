@@ -13,7 +13,11 @@ const HistoryPage = ({ history, clearTranslates }) => {
     return history.map((el, idx) => <HistoryRecord {...el} key={idx} />)
   }
   return (
-    <Wrapper>
+    <Wrapper
+      style={{
+        overflowY: 'scroll'
+      }}
+    >
       {renderRecords()}
       <div
         style={{
