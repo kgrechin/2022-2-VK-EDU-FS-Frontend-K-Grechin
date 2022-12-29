@@ -1,0 +1,22 @@
+@use '../../styles/extends';
+@use '../../styles/variables';
+
+.button {
+  @extend .flex-center, .edging-none;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white;
+  background-color: variables.$dark-color;
+
+  &:hover {
+    filter: brightness(130%);
+  }
+
+  &:active {
+    filter: brightness(150%);
+  }
+}
