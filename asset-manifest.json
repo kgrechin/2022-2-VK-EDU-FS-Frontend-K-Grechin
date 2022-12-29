@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.7e4cabfb.css",
-    "main.js": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.63d38ed4.js",
+    "main.js": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.b5b931bb.js",
     "index.html": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/index.html",
     "main.7e4cabfb.css.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/css/main.7e4cabfb.css.map",
-    "main.63d38ed4.js.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.63d38ed4.js.map"
+    "main.b5b931bb.js.map": "/2022-2-VK-EDU-FS-Frontend-K-Grechin/static/js/main.b5b931bb.js.map"
   },
   "entrypoints": [
     "static/css/main.7e4cabfb.css",
-    "static/js/main.63d38ed4.js"
+    "static/js/main.b5b931bb.js"
   ]
 }
