@@ -22,11 +22,17 @@ const ControlPanel = ({
   const [options, setOptions] = useState(null)
 
   useEffect(() => {
-    const options = Object.entries(langs).map(([key, value]) => (
+    let options = Object.entries(langs).map(([key, value]) => (
       <option key={key} value={value.name}>
         {value.name}
       </option>
     ))
+    options = [
+      <option key="detect" value={'Определить язык'}>
+        Определить язык
+      </option>,
+      ...options
+    ]
     setOptions(options)
   }, [langs])
 
