@@ -77,7 +77,7 @@ const ControlPanel = ({
           }
           className={`${styles.select} ${styles.right}`}
         >
-          {options}
+          {options.slice(1)}
         </select>
       )}
     </div>
