@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  font-size: 14px;
+  color: white;
+  border-top: 1px solid white;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  .source {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 19px;
+    color: rgb(161, 161, 161);
+  }
+
+  .target {
+    margin-left: 5px;
+  }
+
+  // .buttons {
+  //   display: flex;
+  // }
+}

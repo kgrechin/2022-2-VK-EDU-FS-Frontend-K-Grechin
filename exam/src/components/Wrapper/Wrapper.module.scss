@@ -1,0 +1,11 @@
+@use '../../styles/variables';
+
+.wrapper {
+  width: 900px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  position: relative;
+  background-color: variables.$dark-color;
+}

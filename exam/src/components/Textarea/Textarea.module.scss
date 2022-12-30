@@ -1,0 +1,25 @@
+@use '../../styles/extends';
+@use '../../styles//variables';
+
+.container {
+  @extend .flex-column;
+
+  flex: 1;
+  padding: 16px;
+  border-top: 1px solid variables.$light-color;
+
+  .textarea {
+    @extend .edging-none;
+
+    flex: 1;
+    font-size: 14px;
+    color: white;
+    resize: none;
+    background-color: transparent;
+  }
+}
+
+.light {
+  border-bottom-right-radius: 16px;
+  background-color: variables.$light-color;
+}

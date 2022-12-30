@@ -1,0 +1,36 @@
+@use '../../styles/variables';
+@use '../../styles/extends';
+
+.panel {
+  @extend .flex-center;
+
+  .select {
+    @extend .edging-none;
+
+    flex: 1;
+    padding: 16px;
+    appearance: none;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    background-color: variables.$dark-color;
+    transition: all 0.2s;
+
+    &:hover {
+      filter: brightness(130%);
+    }
+
+    &:active {
+      filter: brightness(150%);
+    }
+  }
+
+  .left {
+    border-top-left-radius: 16px;
+  }
+
+  .right {
+    border-top-right-radius: 16px;
+  }
+}
